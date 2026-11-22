@@ -43,12 +43,5 @@ jobs:
       - name: Check formatting
         run: npm run format:check
 
-      - name: Debug security rule
-        run: |
-          git rev-parse HEAD
-          grep -n 'pseudoRandomBytes' src/api/users.ts
-          npm ls eslint-plugin-security
-          npx eslint src/api/users.ts
-
       - name: Run lint
         run: npm run lint -- --max-warnings=0
